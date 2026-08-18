@@ -67,6 +67,52 @@
   </style>
 </head>
 
+  <script>
+
+document.getElementById("calculateBtn").addEventListener("click", function() {
+
+    const years = parseInt(document.getElementById("years").value);
+    const miles = parseInt(document.getElementById("miles").value);
+    const employerRate = parseInt(document.getElementById("rate").value);
+
+    if (!years || !miles || employerRate === "") {
+
+        document.getElementById("results").innerHTML =
+        "Please answer all questions first.";
+
+        return;
+    }
+
+    const annualMiles = miles * 48;
+    const totalMiles = annualMiles * years;
+
+    const approvedRate = 45;
+
+    const mileageGap = (approvedRate - employerRate) / 100;
+
+    const allowanceGap = totalMiles * mileageGap;
+
+    const estimatedRelief = allowanceGap * 0.20;
+
+    document.getElementById("results").innerHTML =
+
+    "<h3>Potential Tax Relief Estimate</h3>" +
+
+    "<p><strong>Estimated Work Miles:</strong> " +
+    totalMiles.toLocaleString() + "</p>" +
+
+    "<p><strong>Estimated Mileage Allowance Gap:</strong> £" +
+    allowanceGap.toFixed(0) + "</p>" +
+
+    "<p><strong>Potential Tax Relief Opportunity:</strong> £" +
+    estimatedRelief.toFixed(0) + "</p>" +
+
+    "<p><em>This is an estimate only and depends on individual circumstances, applicable tax years and supporting records.</em></p>";
+
+});
+
+</script>
+  
 <body>
 
 <div class="hero">
