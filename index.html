@@ -315,8 +315,19 @@ document.getElementById("calculateBtn").addEventListener("click", function() {
 "<button id='submitInterestBtn'>Continue</button>" +
 
 "</div>";
-`
 
+  setTimeout(function() {
+
+    document.getElementById("startRecoveryBtn")
+    .addEventListener("click", function() {
+
+        document.getElementById("recoveryForm")
+        .style.display = "block";
+
+    });
+
+}, 100);
+`
 });
 
 </script>
